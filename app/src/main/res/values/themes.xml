@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AuntyMess" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.AuntyMess" parent="Base.Theme.AuntyMess" />
+    <style name="NoBar" parent="Theme.AppCompat.Light.NoActionBar"/>
+</resources>
