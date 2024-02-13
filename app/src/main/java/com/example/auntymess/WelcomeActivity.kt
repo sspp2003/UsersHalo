@@ -26,4 +26,12 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        if(auth.currentUser!=null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+    }
 }
