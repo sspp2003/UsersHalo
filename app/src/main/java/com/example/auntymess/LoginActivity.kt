@@ -124,6 +124,7 @@ class LoginActivity : AppCompatActivity() {
     private fun addUserData(name: String, email: String, uid: String) {
         database= FirebaseDatabase.getInstance().getReference()
         val userData=UserData(
+            uid,
             name,
             email
         )
