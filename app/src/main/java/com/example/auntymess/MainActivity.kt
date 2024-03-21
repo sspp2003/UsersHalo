@@ -1,5 +1,6 @@
 package com.example.auntymess
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.auntymess.Models.AttendanceItemModel
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         auth=FirebaseAuth.getInstance()
         databaseReference=FirebaseDatabase.getInstance().getReference()
+
+        binding.checkBalance.setOnClickListener {
+            startActivity(Intent(this,BalanceActivity::class.java))
+        }
 
         val uid=auth.currentUser!!.uid
 
