@@ -1,5 +1,6 @@
 package com.example.auntymess
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +29,24 @@ class BalanceActivity : AppCompatActivity() {
         auth=FirebaseAuth.getInstance()
         databaseReference= FirebaseDatabase.getInstance().getReference()
 
-        mAdapter= BalanceAdapter(ballist)
+        mAdapter= BalanceAdapter(ballist,object : BalanceAdapter.OnItemClickListener{
+            override fun OnPresentClick(balitem: BalanceItemModel) {
+                val intent=Intent(this@BalanceActivity,PresentAbsentActivity::class.java)
+                intent.putExtra("activity","Balance")
+                intent.putExtra("action","present")
+                intent.putExtra("bal_id",balitem.balanceid)
+                startActivity(intent)
+            }
+
+            override fun OnAbsentClick(balitem: BalanceItemModel) {
+                val intent=Intent(this@BalanceActivity,PresentAbsentActivity::class.java)
+                intent.putExtra("activity","Balance")
+                intent.putExtra("action","absent")
+                intent.putExtra("bal_id",balitem.balanceid)
+                startActivity(intent)
+            }
+
+        })
         val recyclerview=binding.recyclerviewBalance
         recyclerview.layoutManager=LinearLayoutManager(this)
         recyclerview.adapter=mAdapter

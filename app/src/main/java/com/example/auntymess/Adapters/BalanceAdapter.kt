@@ -8,7 +8,7 @@ import com.example.auntymess.databinding.BalanceItemBinding
 
 class BalanceAdapter(
     private val items: MutableList<BalanceItemModel>,
-    //private val itemClickListener: OnItemClickListener
+    private val itemClickListener: OnItemClickListener
 ): RecyclerView.Adapter<BalanceAdapter.BalanceViewHolder>() {
 
     interface OnItemClickListener{
@@ -37,10 +37,10 @@ class BalanceAdapter(
             binding.balanceAmount.text=balitem.balanceamount
 
             binding.presentBtn.setOnClickListener {
-               // itemClickListener.OnPresentClick(balitem)
+                itemClickListener.OnPresentClick(balitem)
             }
             binding.absentBtn.setOnClickListener {
-               // itemClickListener.OnAbsentClick(balitem)
+                itemClickListener.OnAbsentClick(balitem)
             }
         }
 

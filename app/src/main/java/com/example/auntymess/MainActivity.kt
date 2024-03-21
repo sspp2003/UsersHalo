@@ -30,12 +30,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.presentdatesBtn.setOnClickListener {
             val intent=Intent(this,PresentAbsentActivity::class.java)
+            intent.putExtra("activity","Main")
             intent.putExtra("action","present")
             startActivity(intent)
         }
 
        binding.absentdatesBtn.setOnClickListener {
            val intent=Intent(this,PresentAbsentActivity::class.java)
+           intent.putExtra("activity","Main")
            intent.putExtra("action","absent")
            startActivity(intent)
        }
