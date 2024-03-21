@@ -28,6 +28,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,BalanceActivity::class.java))
         }
 
+        binding.presentdatesBtn.setOnClickListener {
+            val intent=Intent(this,PresentAbsentActivity::class.java)
+            intent.putExtra("action","present")
+            startActivity(intent)
+        }
+
+       binding.absentdatesBtn.setOnClickListener {
+           val intent=Intent(this,PresentAbsentActivity::class.java)
+           intent.putExtra("action","absent")
+           startActivity(intent)
+       }
+
         val uid=auth.currentUser!!.uid
 
         if(uid!=null){
