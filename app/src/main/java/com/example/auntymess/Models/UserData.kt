@@ -1,4 +1,4 @@
-package com.example.auntymess
+package com.example.auntymess.Models
 
 data class UserData(
     val userid: String="",

@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.auntymess.Models.UserData
 import com.example.auntymess.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -123,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun addUserData(name: String, email: String, uid: String) {
         database= FirebaseDatabase.getInstance().getReference()
-        val userData=UserData(
+        val userData= UserData(
             uid,
             name,
             email
