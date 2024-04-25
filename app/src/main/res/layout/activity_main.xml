@@ -71,7 +71,7 @@
                     android:id="@+id/presentCount"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:text="100"
+                    android:text="loading..."
                     android:textColor="#15B602"
                     android:textStyle="bold"
                     android:textSize="30sp"
@@ -105,7 +105,7 @@
                     android:id="@+id/absentCount"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:text="100"
+                    android:text="loading..."
                     android:textColor="#FF0303"
                     android:textStyle="bold"
                     android:textSize="30sp"
@@ -147,7 +147,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="51dp"
         android:layout_toRightOf="@id/startDate"
-        android:text="12-14-2023"
+        android:text=""
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -159,7 +159,7 @@
         android:layout_below="@id/startDate"
         android:layout_marginTop="31dp"
         android:layout_marginStart="5dp"
-        android:text="12-14-2023"
+        android:text=""
         android:textSize="30sp"
         android:textStyle="bold"/>
 
