@@ -14,10 +14,10 @@
         android:alpha="0.1"
         android:scaleType="centerCrop"
         android:src="@drawable/background"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/status_tv"
@@ -27,18 +27,17 @@
         android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:layout_below="@id/imageView"/>
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginHorizontal="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_below="@id/status_tv"
-        android:layout_centerHorizontal="true">
+        android:layout_below="@id/status_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -46,16 +45,16 @@
 
             <LinearLayout
                 android:id="@+id/linear1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="16dp"
+                android:background="@drawable/present_oultinebox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/linear2"
-                android:background="@drawable/present_oultinebox">
+                app:layout_constraintEnd_toStartOf="@id/linear2">
 
                 <TextView
                     android:id="@+id/present"
@@ -80,16 +79,16 @@
 
             <LinearLayout
                 android:id="@+id/linear2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="16dp"
                 android:orientation="vertical"
+                android:background="@drawable/absent_outlinebox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/linear1"
-                android:background="@drawable/absent_outlinebox">
+                app:layout_constraintStart_toEndOf="@id/linear1">
 
                 <TextView
                     android:id="@+id/absent"
@@ -119,49 +118,45 @@
         android:id="@+id/startDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/frameLayout"
-        android:layout_alignParentStart="true"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:text="Start Date:" />
+        android:text="Start Date:"
+        android:layout_below="@id/frameLayout"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/endDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="End Date:"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:text="End Date:"
         android:layout_below="@id/startDate"
-        android:layout_marginStart="20dp">
-    </TextView>
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@id/startDate"/>
 
     <TextView
         android:id="@+id/messStartDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/frameLayout"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="51dp"
-        android:layout_toRightOf="@id/startDate"
-        android:text=""
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="51dp"
+        android:layout_toEndOf="@id/startDate"
+        android:text=""
+        android:layout_below="@id/frameLayout" />
 
     <TextView
         android:id="@+id/messEndDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/endDate"
-        android:layout_below="@id/startDate"
-        android:layout_marginTop="31dp"
-        android:layout_marginStart="5dp"
-        android:text=""
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginTop="31dp"
+        android:layout_toEndOf="@id/endDate"
+        android:text=""
+        android:layout_below="@id/startDate"/>
 
     <LinearLayout
         android:id="@+id/linearlayout_dates"
@@ -195,7 +190,7 @@
         android:id="@+id/check_balance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CHECK BALALNCE"
+        android:text="CHECK BALANCE"
         android:textSize="24sp"
         android:background="@drawable/register_background"
         android:layout_below="@id/linearlayout_dates"

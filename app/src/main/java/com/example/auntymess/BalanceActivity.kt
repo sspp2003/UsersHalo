@@ -3,6 +3,7 @@ package com.example.auntymess
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.auntymess.Adapters.BalanceAdapter
 import com.example.auntymess.Models.BalanceItemModel
@@ -28,6 +29,8 @@ class BalanceActivity : AppCompatActivity() {
 
         auth=FirebaseAuth.getInstance()
         databaseReference= FirebaseDatabase.getInstance().getReference()
+        val messId=intent.getStringExtra("messId")
+        Log.d("TAG", "$messId")
 
         mAdapter= BalanceAdapter(ballist,object : BalanceAdapter.OnItemClickListener{
             override fun OnPresentClick(balitem: BalanceItemModel) {
@@ -35,6 +38,7 @@ class BalanceActivity : AppCompatActivity() {
                 intent.putExtra("activity","Balance")
                 intent.putExtra("action","present")
                 intent.putExtra("bal_id",balitem.balanceid)
+                intent.putExtra("messId",messId)
                 startActivity(intent)
             }
 
@@ -43,6 +47,7 @@ class BalanceActivity : AppCompatActivity() {
                 intent.putExtra("activity","Balance")
                 intent.putExtra("action","absent")
                 intent.putExtra("bal_id",balitem.balanceid)
+                intent.putExtra("messId",messId)
                 startActivity(intent)
             }
 
@@ -51,10 +56,10 @@ class BalanceActivity : AppCompatActivity() {
         recyclerview.layoutManager=LinearLayoutManager(this)
         recyclerview.adapter=mAdapter
 
-        val userid=auth.currentUser!!.uid
+        val userid=auth.currentUser?.uid
 
-        if(userid!=null){
-            val balReference=databaseReference.child("balance").child(userid)
+        if(userid!=null && messId!=null){
+            val balReference=databaseReference.child("MessOwners").child(messId).child("balance").child(userid)
 
             balReference.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
